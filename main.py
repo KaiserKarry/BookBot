@@ -3,7 +3,8 @@ def main():
     book_text = get_book_text(book_path)
     word_count = number_of_words(book_text)
     letter_count = number_of_letters(book_text)
-    print(letter_count)
+    seperate_letter_dictionaries(letter_count)
+    # print(letter_count)
 
 def get_book_text(book_path):
     with open(book_path) as f:
@@ -27,5 +28,19 @@ def number_of_letters(text):
         else:
             letters[character] = 1
     return letters
+
+def seperate_letter_dictionaries(text):
+    # empty list
+    seperated_list = []
+
+    # iterating over every entry in the text dictionary and adding it seperately to the list
+    for i in text:
+        if i.isalpha():
+            seperated_list += i
+            print (f"key is {i}, value is {text[i]}")
+        else:
+            pass
+    return seperated_list
+
 
 main()
